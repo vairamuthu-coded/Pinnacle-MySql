@@ -19,6 +19,6 @@ namespace Pinnacle.Models.Bank
         public string ipaddress { get; set; }
         public string modifiedby { get; set; }
         public string createdon { get; set; }
-        public Int64 paymenttype { get; set; }
+        public Int64 paymenttypes { get; set; }
     }
 }
