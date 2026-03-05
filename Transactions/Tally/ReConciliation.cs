@@ -218,7 +218,7 @@ namespace Pinnacle.Transactions.Tally
             }
             catch (Exception EX) { }
         }
-
+        
         public void GridLoad()
         {
             try
@@ -290,9 +290,7 @@ namespace Pinnacle.Transactions.Tally
 
             }
         }
-        DataTable dttbl2 = new DataTable();
-
-
+        DataTable dttbl2 = new DataTable();        
         public void News()
         {
 
@@ -314,14 +312,11 @@ namespace Pinnacle.Transactions.Tally
             Class.Users.TableNameSubGrid = null; Class.Users.Prefix = null; Class.Users.Prefix = null;
             Class.Users.Description = null; Class.Users.Description = null;
             Class.Users.FieldName = null; Class.Users.FieldName = null;
-
             dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Class.Users.BackColors;
-
             if (dataGridView2.Rows.Count > 1)
             {
                 daimport.GridRowRemove(dataGridView1);
                 daimport.GridRowRemove(dataGridView2);
-
             }
             GridLoad(); TableLoad();
 
@@ -983,8 +978,7 @@ namespace Pinnacle.Transactions.Tally
                     string frmtable = "", frmrow = "", frmdata = ""; int i = 0;
                     foreach (DataGridViewColumn row in dataGridView1.Columns)
                     {
-                        //if (val.IsStringdotspace(row.HeaderText) == true)
-                        //{
+                       
                         if (i == 0)
                         {
                             if (row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "date")
@@ -1001,23 +995,23 @@ namespace Pinnacle.Transactions.Tally
                         }
                         if (i >= 1)
                         {
-                            if (row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "credit" || row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "debit")
-                            {
+                            //if (row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "credit" || row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "debit")
+                            //{
                                 
-                                frmtable += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") + "  decimal(12,2) not null default 0.00";
-                                frmrow += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "");
-                                if (row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "credit")
-                                {
-                                    frmtable += "," + "unmatched varchar(250) default null";
-                                }
-                            }
+                            //    frmtable += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") + "  decimal(12,2) not null default 0.00";
+                            //    frmrow += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "");
+                            //    if (row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "credit")
+                            //    {
+                            //        frmtable += "," + "unmatched varchar(250) default null";
+                            //    }
+                            //}
 
-                            else
-                            {
+                            //else
+                            //{
 
-                                frmtable += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") + "  varchar(500) default null";
+                                frmtable += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") + "  varchar(100) default null";
                                 frmrow += "," + row.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "");
-                            }
+                            //}
                         }
                         i++;
 
@@ -1052,13 +1046,13 @@ namespace Pinnacle.Transactions.Tally
                                 foreach (DataGridViewColumn col in dataGridView1.Columns)
                                 {
 
-
-                                    if (i + j == 0)
-                                    {
-                                        frmdata += "'" + Convert.ToDateTime(row.Cells[i + j].Value.ToString().Substring(0, 10)).ToString("yyyy-MM-dd") + "'";
-                                    }
-                                    if (i + j >= 1)
-                                    {
+                                
+                                        if (i + j == 0)
+                                        {
+                                            frmdata += "'" + Convert.ToDateTime(row.Cells[i + j].Value.ToString()).ToString("yyyy-MM-dd") + "'";
+                                        }
+                                        if (i + j >= 1)
+                                        {
                                         if (col.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") == "debit")
                                         {
                                             frmdata += ",'" + Convert.ToDecimal("0" + row.Cells[i + j].Value) + "'";
@@ -1069,11 +1063,11 @@ namespace Pinnacle.Transactions.Tally
                                         }
 
                                         if (col.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") != "debit" && col.HeaderText.ToLower().Replace("#", "").Trim().Replace(" ", "") != "credit")
-                                        {
-                                            frmdata += ",'" + row.Cells[i + j].Value + "'";
+                                            {
+                                                frmdata += ",'" + row.Cells[i + j].Value + "'";
+                                            }
                                         }
-                                    }
-
+                                    
                                     i++;
 
                                 }
@@ -2664,11 +2658,11 @@ namespace Pinnacle.Transactions.Tally
         decimal fdebitamt, fcreditamt, tdebitamt, tcreditamt = 0;
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Class.Users.CompCode1 = "";
+             Class.Users.CompCode1 = "";
 
             if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
             {
-                if (Class.Users.HUserName == "VAIRAM")
+                if (Class.Users.IPADDRESS == "192.168.101.15")
                 {
                     textBox1.Visible = true;
                 }

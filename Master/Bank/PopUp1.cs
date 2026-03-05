@@ -34,9 +34,9 @@ namespace Pinnacle.Master.Bank
 
         private void PopUp1_Load(object sender, System.EventArgs e)
         {
-            
-                string sel = "select a.partycode,a.asptblpartymasid from asptblpartymas a order by a.partycode asc";
-                DataSet ds = Utility.ExecuteSelectQuery(sel, "asptblpartymas");
+            string sel = "select a.partycode,a.asptblpartymasid from asptblpartymas a order by a.partycode asc";
+            //string sel = "select a.partycode,a.asptblpartymasid from asptblpartymas a order by a.partycode asc";
+            DataSet ds = Utility.ExecuteSelectQuery(sel, "asptblpartymas");
                 DataTable dt11 = ds.Tables["asptblpartymas"];
 
                 if (dt11 != null)
